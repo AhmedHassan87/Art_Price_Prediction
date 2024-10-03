@@ -11,7 +11,14 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 import time
 import unicodedata
+from selenium.webdriver.chrome.options import Options
 
+# Set up Chrome options
+chrome_options = Options()
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--headless")  # Run in headless mode
+chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
 artists_data = pd.DataFrame()
 artists, artists_fame, unavailable_artists = [], [], []
 unique_artists = {}
